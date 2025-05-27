@@ -1,0 +1,1 @@
+export type FilterType = 'starred' | 'blocked' | 'webchat' | 'teams' | 'today';
