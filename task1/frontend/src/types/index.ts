@@ -6,13 +6,21 @@ export interface ButtonProps {
     children: ReactNode;
 }
 
-interface Message {
+export interface Message {
     sender: 'user' | 'system';
     text: string;
     timestamp: string;
 }
 
-export interface Conversation {
+export interface MessageProps {
+  message: Message;
+}
+
+export interface DateSeparatorProps {
+  date: string;
+}
+
+export interface ConversationList {
     id: string;
     ip: string;
     lastMessageTime: string;
@@ -20,11 +28,21 @@ export interface Conversation {
     region: 'Asia' | 'Europe' | 'America';
     starred: boolean;
     blocked: boolean;
-    messages: Message[];
+}
+
+export interface Conversation {
+    [key: string]: Message[];
 }
 
 export interface ConversationItemProps {
-    conversation: Conversation;
+    conversation: ConversationList;
     isActive: boolean;
     onClick: () => void;
+}
+
+export interface ConversationSliceState {
+    conversations: ConversationList[];
+    conversationMessages: Conversation;
+    selectedConversation: ConversationList | null;
+    selectedConversationMessages: Message[];
 }

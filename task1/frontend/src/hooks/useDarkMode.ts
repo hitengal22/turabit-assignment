@@ -1,6 +1,6 @@
-import { useState, useEffect, type Dispatch, type SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 
-export const useDarkMode = (): (boolean | Dispatch<SetStateAction<boolean>>)[] => {
+export const useDarkMode = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const saved = localStorage.getItem('darkMode');
     return saved ? JSON.parse(saved) : false;
